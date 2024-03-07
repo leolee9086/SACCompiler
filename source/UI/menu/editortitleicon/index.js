@@ -71,14 +71,21 @@ export const 编辑器菜单内容 = [
             );
         },
         click:async(e)=>{
+            let 代码片段id = `${e.detail.data.id}js`
+            let 现有代码片段 = await kernelApi.getSnippet({ type: "all", enabled: 2 });
+            let 序号 = 现有代码片段.snippets.findIndex((item) => {
+                return item.id === 代码片段id;
+            });
             let 用户确认结果 = clientApi.confirm(
                 "确认删除?",
                 "删除代码片段无法撤销,请确认你是否要删除它",
                 async () => {
                   用户确认结果 = true;
-                  当前代码片段.snippets.splice(index, 1);
-                  element.remove();
-                  await 核心api.setSnippet(当前代码片段);
+                  现有代码片段.snippets.splice(序号, 1);
+                  document.querySelector(
+                    `script[id="snippetJS${e.detail.data.id}js"]`
+                ).remove();
+                  await kernelApi.setSnippet(现有代码片段);
                   window.location.reload();
                 },
                 () => {
