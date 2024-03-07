@@ -2,13 +2,21 @@
   "name": "SACCompiler",
   "author": "椽承设计",
   "url": "https://github.com/leolee9086/SACCompiler",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minAppVersion": "3.0.0",
   "backends": [
-    "windows"
+    "windows",
+    "linux",
+    "darwin",
+    "ios",
+    "android"
   ],
   "frontends": [
-    "desktop"
+    "desktop",
+    "mobile",
+    "browser-desktop",
+    "browser-mobile",
+    "desktop-window"
   ],
   "displayName": {
     "default": "SACCompiler",
