@@ -1,5 +1,5 @@
-import * as lexer from 'https://esm.sh/es-module-lexer'
-import MagicString from "https://esm.sh/magic-string"
+import * as lexer from './es-module-lexer.js'
+import MagicString from "./magic-string.js"
 import {default as 核心api} from '../polyfills/kernelApi.js';
 import { 重写导入 } from './moduleLexer.js';
 async function 关闭文档js代码片段() {
